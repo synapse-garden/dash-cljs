@@ -1,0 +1,21 @@
+pom.xml
+*jar
+/lib/
+/classes/
+/out/
+/target/
+.lein-deps-sum
+.lein-repl-history
+.lein-plugins/
+
+# Swapfiles
+*.sw[op]
+
+# Compiled js
+*.js
+
+# NREPL
+.nrepl-port
+
+# Live eval index
+index_lt.html
