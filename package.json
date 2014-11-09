@@ -1,0 +1,8 @@
+{
+  "name": "dash",
+  "devDependencies": {
+    "karma": "~0.12",
+    "karma-jasmine": "~0.2.3",
+    "karma-chrome-launcher": "~0.1.5",
+  }
+}
