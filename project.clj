@@ -8,10 +8,12 @@
                  [org.clojure/clojurescript "0.0-2371"]
                  [org.clojure/core.async "0.1.267.0-0d7780-alpha"]
                  [om "0.7.1"]
-                 [garden "1.2.5"]]
+                 [garden "1.2.5"]
+                 [com.aphyr/prism "0.1.1"]]
 
   :plugins [[lein-cljsbuild "1.0.4-SNAPSHOT"]
-            [com.cemerick/clojurescript.test "0.3.1"]]
+            [com.cemerick/clojurescript.test "0.3.1"]
+            [com.aphyr/prism "0.1.1"]]
 
   :hooks [leiningen.cljsbuild]
 
