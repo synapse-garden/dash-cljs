@@ -1,7 +1,7 @@
 (ns dash-test.core
-  (:require [purnam.test])
-  (:use-macros [purnam.test :only [describe it is is-not]]))
+  (:require-macros [cemerick.cljs.test
+                    :refer (is deftest with-test run-tests testing test-var)])
+  (:require [cemerick.cljs.test :as t]))
 
-(describe "Normal (expect) usage works"
-  (it "should be true"
-    (expect true :to-be true)))
+(deftest somewhat-less-wat
+  (is (= "{}[]" (+ {} []))))

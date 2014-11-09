@@ -10,7 +10,10 @@
                  [om "0.7.1"]
                  [garden "1.2.5"]]
 
-  :plugins [[lein-cljsbuild "1.0.4-SNAPSHOT"]]
+  :plugins [[lein-cljsbuild "1.0.4-SNAPSHOT"]
+            [com.cemerick/clojurescript.test "0.3.1"]]
+
+  :hooks [leiningen.cljsbuild]
 
   :source-paths ["src"]
 
@@ -25,5 +28,7 @@
              {:id "test"
               :source-paths ["src" "test"]
               :compiler {:output-to "tests.js"
-                         :optimizations :none
-                         :pretty-print true}}]})
+                         :optimizations :whitespace
+                         :pretty-print true}}]
+    :test-commands {"unit-tests" ["phantomjs" :runner
+                                  "tests.js"]}})
