@@ -6,6 +6,8 @@
 
 (enable-console-print!)
 
+(defn foo [] true)
+
 (def app-state
   (atom
    {:lists
@@ -26,4 +28,4 @@
          (dom/h3 nil "grump")))))
 
 (om/root todo-view app-state
-  {:target (. js/document (getElementById "lists"))})
+  {:target (. js/document (getElementById "dash"))})

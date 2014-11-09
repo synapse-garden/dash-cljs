@@ -19,3 +19,6 @@ pom.xml
 
 # Live eval index
 index_lt.html
+
+# Lein logs
+.lein-failures
