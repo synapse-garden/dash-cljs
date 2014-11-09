@@ -20,5 +20,9 @@ pom.xml
 # Live eval index
 index_lt.html
 
-# Lein logs
+# logs
 .lein-failures
+npm-debug.log
+
+# Node modules
+node_modules/
