@@ -4,4 +4,4 @@ before_install:
   - npm install karma
 script:
   - lein2 cljsbuild once test
-  - karma start --single-run --browsers firefox
+  - node_modules/karma/bin/karma start --single-run --browsers firefox
