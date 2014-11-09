@@ -21,10 +21,10 @@
               :compiler {
                 :output-to "dash.js"
                 :output-dir "out"
-                :optimizations :whitespace
+                :optimizations :none
                 :source-map true}}
              {:id "test"
               :source-paths ["src" "test"]
               :compiler {:output-to "tests.js"
-                         :optimizations :whitespace
+                         :optimizations :none
                          :pretty-print true}}]})
