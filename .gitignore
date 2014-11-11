@@ -17,12 +17,14 @@ pom.xml
 # NREPL
 .nrepl-port
 
-# Live eval index
-index_lt.html
-
 # logs
 .lein-failures
 npm-debug.log
 
 # Node modules
 node_modules/
+
+# IDEA files for Cursive
+*.iml
+
+.idea

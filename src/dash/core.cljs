@@ -6,7 +6,7 @@
 
 (enable-console-print!)
 
-(defn foo [] true)
+(defn poop [] false)
 
 (def app-state
   (atom

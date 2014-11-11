@@ -9,28 +9,28 @@
                  [org.clojure/core.async "0.1.267.0-0d7780-alpha"]
                  [om "0.7.1"]
                  [garden "1.2.5"]
-                 [com.aphyr/prism "0.1.1"]]
+                 [im.chit/purnam.test "0.5.1"]]
 
-  :plugins [[lein-cljsbuild "1.0.4-SNAPSHOT"]
-            [com.cemerick/clojurescript.test "0.3.1"]
-            [com.aphyr/prism "0.1.1"]]
+  :plugins [[lein-cljsbuild "1.0.4-SNAPSHOT"]]
 
-  :hooks [leiningen.cljsbuild]
+  ;:hooks [leiningen.cljsbuild]
 
   :source-paths ["src"]
+  :output-dir "out"
+
+  ;:libs [ "dash.js" ""]
 
   :cljsbuild {
     :builds [{:id "dash"
               :source-paths ["src"]
               :compiler {
-                :output-to "dash.js"
-                :output-dir "out"
-                :optimizations :none
-                :source-map true}}
+                :output-to "res/script/dash.js"
+                :optimizations :none}}
+                ;:source-map true}}
              {:id "test"
               :source-paths ["src" "test"]
-              :compiler {:output-to "tests.js"
-                         :optimizations :whitespace
+              :compiler {:output-to "res/script/tests.js"
+                         :optimizations :none
                          :pretty-print true}}]
-    :test-commands {"unit-tests" ["phantomjs" :runner
-                                  "tests.js"]}})
+});    :test-commands {"unit-tests" ["slimerjs" :runner
+;                                  "res/script/tests.js"]}})
