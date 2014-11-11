@@ -15,12 +15,13 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'http://fb.me/react-0.11.1.js',
-      'out/goog/base.js',
-      'out/**/*.js',
-      'out/goog/deps.js',
-      'res/script/tests.js',
-      'index_test.html'
+      //'http://fb.me/react-0.11.1.js',
+      'test_out/goog/base.js',
+      'test_out/goog/deps.js',
+      //'test_out/**/*.js',
+      //'test_out/dash_test/core.js',
+      'res/script/tests.js'
+      //'index_test.html'
       //'res/script/*.js'
     ],
 
@@ -62,7 +63,7 @@ module.exports = function(config) {
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     //browsers: ['Chrome', 'Firefox', 'PhantomJS', 'SlimerJS'],
-    browsers: ['SlimerJS'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode

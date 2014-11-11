@@ -13,24 +13,19 @@
 
   :plugins [[lein-cljsbuild "1.0.4-SNAPSHOT"]]
 
-  ;:hooks [leiningen.cljsbuild]
-
   :source-paths ["src"]
-  :output-dir "out"
-
-  ;:libs [ "dash.js" ""]
 
   :cljsbuild {
     :builds [{:id "dash"
               :source-paths ["src"]
               :compiler {
+                :output-dir "out"
                 :output-to "res/script/dash.js"
                 :optimizations :none}}
-                ;:source-map true}}
              {:id "test"
               :source-paths ["src" "test"]
-              :compiler {:output-to "res/script/tests.js"
-                         :optimizations :none
-                         :pretty-print true}}]
-});    :test-commands {"unit-tests" ["slimerjs" :runner
-;                                  "res/script/tests.js"]}})
+              :compiler {
+                :output-to "res/script/tests.js"
+                :output-dir "test_out"
+                :optimizations :none
+                :pretty-print true}}]})
