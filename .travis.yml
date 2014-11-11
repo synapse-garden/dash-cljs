@@ -4,4 +4,4 @@ before_install:
   - npm install
 script:
   - lein2 cljsbuild once test
-  - node_modules/karma/bin/karma start --single-run --browsers PhantomJS
+  - node_modules/karma/bin/karma start --single-run
