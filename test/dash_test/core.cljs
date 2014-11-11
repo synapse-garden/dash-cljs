@@ -1,7 +1,12 @@
 (ns dash-test.core
-  (:require-macros [cemerick.cljs.test
-                    :refer (is deftest with-test run-tests testing test-var)])
-  (:require [cemerick.cljs.test :as t]))
+  (:require [purnam.test]
+            );[dash.core :refer [poop]])
+  (:use-macros [purnam.test :only [describe it is is-not]]))
 
-(deftest somewhat-less-wat
-  (is (= "{}[]" (+ {} []))))
+(describe
+  (it "works"
+    (is (= 1 1) true)))
+
+;(describe
+;  (it "is poopy"
+;    (is (poop) true)))
