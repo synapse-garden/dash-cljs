@@ -5,28 +5,29 @@
             [garden.core :as gdn]
             [dash-test.tests :as dash-tests]))
 
+(def test-state
+  (atom {}))
+
 (enable-console-print!)
 
-;(loop through "tests" vector, print "should" value, run "fn" value with "args" value)
+(defn insert-ids [maps]
+  "insert-ids takes a sequence of maps and updates each element with an :id
+   from sequential integers > 1"
+  (map (fn [m i](update-in m [:id] i) maps (iterate inc 1))))
 
-;(def app-state
-;  (atom
-;   {:lists
-;      [{:name "Today"
-;        :tasks ["Get this working" "Eat dinner" "Hang out with Bodor"]}
-;       {:name "Tomorrow"
-;        :tasks ["Wake up" "Eat breakfast" "Render some cool stuff lol" "Take a big grump dump" "Play some muc"]}
-;       {:name "The Future"
-;        :tasks ["Be fucking successful as fuck" "Complete Mindfork" "Complete Phoenix Engine" "Complete Dwarf Game" "Die happy"]}]
-;    :user
-;     "User"}))
+(defn test-view [test-case owner]
+  (reify
+    om/IRender (render [_]
+      (dom/li #js {:id (:should test-case)}))))
 
-;(defn todo-view [app owner]
-;  (reify
-;    om/IRender (render [_]
-;      (dom/div #js {:id "todolist"}
-;         (dom/h2 nil (str (:user app) "'s Todo Lists" ))
-;         (dom/h3 nil "grump")))))
+(defn tests-view [app owner]
+  (reify
+    om/IRender (render [_]
+      (dom/div #js {:id "tests"}
+        (apply dom/ul nil
+          (om/build-all test-view (insert-ids dash-tests/tests))))))
 
-;(om/root todo-view app-state
-;  {:target (. js/document (getElementById "tests"))})
+(om/root
+  tests-view
+  test-state
+  {:target (. js/document (getElementById "tests"))})
