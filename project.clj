@@ -5,15 +5,13 @@
             :url "http://www.gnu.org/copyleft/gpl.html"}
 
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 ;[org.clojure/clojurescript "0.0-2371"]
-                 [org.clojure/clojurescript "0.0-2322"]
-                 [org.clojure/core.async "0.1.267.0-0d7780-alpha"]
-                 ;[om "0.7.1"]
-                 [om "0.8.0-alpha2"]
+                 [org.clojure/clojurescript "0.0-2511"]
+                 [org.clojure/core.async "0.1.346.0-17112a-alpha"]
+                 [om "0.8.0-rc1"]
                  [garden "1.2.5"]
                  [im.chit/purnam.test "0.5.1"]]
 
-  :plugins [[lein-cljsbuild "1.0.4-SNAPSHOT"]]
+  :plugins [[lein-cljsbuild "1.0.4"]]
 
   :source-paths ["src"]
 
