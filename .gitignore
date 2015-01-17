@@ -1,11 +1,11 @@
 pom.xml
 *jar
-/lib/
-/classes/
-/resources/out/
-/resources/test_out/
-/resources/script/
-/target/
+lib/
+classes/
+resources/out/
+resources/test_out/
+resources/script/
+target/
 .lein-deps-sum
 .lein-repl-history
 .lein-plugins/
@@ -15,6 +15,9 @@ pom.xml
 
 # Compiled js
 *.js
+
+# Source maps
+*.map
 
 # NREPL
 .nrepl-port
