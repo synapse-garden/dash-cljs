@@ -7,7 +7,7 @@
   (reify
     om/IRender (render [_]
       (let [{:keys [id should test-fn should-be raw-fn args]} test-case]
-        (dom/div (if (= should-be (test-fn args)) #js {:id "passed"} #js {:id "failed"})
+        (dom/div (if (= should-be (test-fn args)) #js {:className "passed"} #js {:className "failed"})
           (dom/h3 nil (str "Test " id ": should " should))
           (dom/ul nil
             (if args (dom/li nil (str "given args: " args)) "")

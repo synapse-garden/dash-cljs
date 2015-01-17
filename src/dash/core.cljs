@@ -6,7 +6,7 @@
 
 (enable-console-print!)
 
-(defn falsy [] false)
+(defn falsy [] true)
 
 (def app-state
   (atom
