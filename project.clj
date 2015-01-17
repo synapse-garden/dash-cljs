@@ -28,7 +28,7 @@
                 :output-dir "resources/out"
                 :optimizations :none}}
              {:id "test"
-              :source-paths ["test"]
+              :source-paths ["src" "test"]
               :compiler {
                 :output-to "resources/script/tests.js"
                 :output-dir "resources/test_out"
