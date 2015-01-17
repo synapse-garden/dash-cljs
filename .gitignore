@@ -2,8 +2,9 @@ pom.xml
 *jar
 /lib/
 /classes/
-/out/
-/test_out/
+/resources/out/
+/resources/test_out/
+/resources/script/
 /target/
 .lein-deps-sum
 .lein-repl-history
@@ -15,18 +16,11 @@ pom.xml
 # Compiled js
 *.js
 
-# But not Karma's conf file
-!karma.conf.js
-
 # NREPL
 .nrepl-port
 
 # logs
 .lein-failures
-npm-debug.log
-
-# Node modules
-node_modules/
 
 # IDEA files for Cursive
 *.iml

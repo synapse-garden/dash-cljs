@@ -5,27 +5,37 @@
             :url "http://www.gnu.org/copyleft/gpl.html"}
 
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-2511"]
+                 [org.clojure/clojurescript "0.0-2665"]
                  [org.clojure/core.async "0.1.346.0-17112a-alpha"]
-                 [om "0.8.0-rc1"]
-                 [garden "1.2.5"]
-                 [im.chit/purnam.test "0.5.1"]]
+                 [figwheel "0.2.1-SNAPSHOT"]
+                 [org.om/om "0.8.0"]
+                 [garden "1.2.5"]]
 
-  :plugins [[lein-cljsbuild "1.0.4"]]
+  :plugins [[lein-cljsbuild "1.0.4"]
+            [lein-figwheel "0.2.1-SNAPSHOT"]]
 
   :source-paths ["src"]
+
+  :clean-targets ^{:protect false} ["resources/out"
+                                    "resources/test_out"
+                                    "resources/script"]
 
   :cljsbuild {
     :builds [{:id "dash"
               :source-paths ["src"]
               :compiler {
-                :output-dir "out"
-                :output-to "res/script/dash.js"
+                :output-to "resources/script/dash.js"
+                :output-dir "resources/out"
                 :optimizations :none}}
              {:id "test"
               :source-paths ["test"]
               :compiler {
-                :output-to "res/script/tests.js"
-                :output-dir "test_out"
+                :output-to "resources/script/tests.js"
+                :output-dir "resources/test_out"
                 :optimizations :none
-                :pretty-print true}}]})
+                :pretty-print true
+                :source-map true}}]}
+  :figwheel {
+             :http-server-root ""
+             :server-port 3449
+             :css-dirs ["resources/css"]})
