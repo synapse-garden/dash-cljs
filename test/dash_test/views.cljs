@@ -3,17 +3,17 @@
             [om.dom :as dom :include-macros true]))
 
 (defn test-view [test-case owner]
-  "test-view renders a single test div with class 'passed or 'failed."
+  "test-view renders a single test div with class 'passed or 'failed'."
   (reify
     om/IRender (render [_]
       (let [{:keys [id should test-fn should-be raw-fn args]} test-case]
         (dom/div (if (= should-be (test-fn args)) #js {:className "passed"} #js {:className "failed"})
-          (dom/h3 nil (str "Test " id ": should " should))
+          (dom/h3 nil (str "Test " id " // should " should))
           (dom/ul nil
-            (if args (dom/li nil (str "given args: " args)) "")
-            (dom/li nil (str raw-fn))
-            (dom/li nil (str "should be " should-be))
-            (dom/li nil (str "was " (test-fn args)))
+            (if args (dom/li #js {:className "test-args"} (str "given args: " args)) "")
+            (dom/li #js {:className "test-fn"} (str raw-fn))
+            (dom/li #js {:className "test-should-be"} (str "should be " should-be))
+            (dom/li #js {:className "test-result"} (str "is " (test-fn args)))
         ))))))
 
 (defn tests-view [app owner]
