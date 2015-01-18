@@ -17,4 +17,9 @@
     :test-fn dash-core/falsy
     :should-be false
     :raw-fn (str dash-core/falsy)}
+
+   {:should "purposely fail, for style testing"
+    :test-fn (fn [] true)
+    :should-be false
+    :raw-fn '(fn [] true)}
   ])
