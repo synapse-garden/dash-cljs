@@ -6,8 +6,6 @@
 
 (enable-console-print!)
 
-(defn falsy [] true)
-
 (def app-state
   (atom
    {:lists
