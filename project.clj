@@ -6,10 +6,8 @@
 
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/clojurescript "0.0-2665"]
-                 [org.clojure/core.async "0.1.346.0-17112a-alpha"]
                  [figwheel "0.2.1-SNAPSHOT"]
-                 [org.om/om "0.8.0"]
-                 [garden "1.2.5"]]
+                 [org.om/om "0.8.0"]]
 
   :plugins [[lein-cljsbuild "1.0.4"]
             [lein-figwheel "0.2.1-SNAPSHOT"]]
