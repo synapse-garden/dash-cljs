@@ -3,7 +3,7 @@
             [om.dom :as dom :include-macros true]))
 
 (defn test-view [test-case owner]
-  "test-view renders a single test div with class 'passed or 'failed'."
+  "test-view renders a single test div with class 'passed or 'failed."
   (reify
     om/IRender (render [_]
       (let [{:keys [id should test-fn should-be raw-fn args]} test-case]
