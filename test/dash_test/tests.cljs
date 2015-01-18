@@ -13,6 +13,11 @@
     :raw-fn '(fn [names] (= (:bob names) "Bob Anderson"))
     :args {:bob "Bob Anderson" :jim "Slim Jim"}}
 
+   {:should "demonstrate the testing of dash-core functions"
+    :test-fn dash-core/test-fail
+    :should-be false
+    :raw-fn (str dash-core/test-fail)}
+
    {:should "purposely fail, for style testing"
     :test-fn (fn [] true)
     :should-be false
