@@ -8,7 +8,8 @@
     om/IRender (render [_]
       (let [{:keys [id should test-fn should-be raw-fn args]} test-case]
         (dom/div (if (= should-be (test-fn args)) #js {:className "passed"} #js {:className "failed"})
-          (dom/h3 nil (str "Test " id " // should " should))
+          (dom/h3 #js {:className "test-name"} (str "Test " id))
+          (dom/h2 #js {:className "test-desc"} (str "should " should))
           (dom/ul nil
             (if args (dom/li #js {:className "test-args"} (str "given args: " args)) "")
             (dom/li #js {:className "test-fn"} (str raw-fn))
@@ -23,5 +24,6 @@
   (reify
     om/IRender (render [_]
       (dom/div #js {:id "tests"}
+        (dom/h2 #js {:id "test-title"} (str "Testing View"))
         (apply dom/ul nil
           (om/build-all test-view (:tests app)))))))

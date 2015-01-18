@@ -6,7 +6,7 @@ html{
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-size: 18px;
-    line-height: 1.3em;
+    line-height: 1.2em;
     letter-spacing: 1px;
 
     text-align: center;
@@ -29,14 +29,11 @@ h1 {
 }
 
 h2 {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 300;
     color: #0fc;
-    margin-top: 16px;
-    margin-left: 0;
-    text-align: right;
-    width: 400px;
-    border-bottom: dotted 1px #097;
+    text-align: left;
+    margin-top: -2px;
 }
 
 h3 {
@@ -44,7 +41,8 @@ h3 {
     font-weight: 300;
     color: #0fc;
     letter-spacing: 2px;
-    margin: 0px 0px;
+    margin: 2px 0px;
+    padding: 2px 0px;
 }
 
 h4 {
@@ -125,13 +123,30 @@ button:active {
     transition-duration: 0.00s;
 }
 
+/*************************/
+/* Test Specific Styling */
+/*************************/
+
+
+/* Top Level Testing Div */
 
 #tests{
     padding: 14px;
     margin: 32px;
-    background: #2c2c2c;
+    background: #1c1c1c;
     outline: solid 1px #444;
 }
+
+#test-title{
+    color: #aaa;
+    font-size: 24px;
+    letter-spacing: 3px;
+    text-align: center;
+    margin: 8px;
+}
+
+
+/* Passing Tests */
 
 #tests .passed{
     padding: 16px 32px;
@@ -139,13 +154,17 @@ button:active {
     outline: solid 1px #097;
     background: #202927;
 }
-#tests .passed h3{
+#tests .passed .test-name{
     color: #0fc;
+    text-align: center;
 }
-#tests .passed .fn{
-  font-family: serif;
+#tests .passed .test-desc{
+    color: #0fc;
+    text-align: center;
 }
 
+
+/* Failing Tests */
 
 #tests .failed{
     padding: 16px 32px;
@@ -153,28 +172,37 @@ button:active {
     outline: double 4px #f07;
     background: #2f2227;
 }
-#tests .failed h3{
+#tests .failed .test-name{
     color: #f07;
     font-weight: 500;
+    text-align: center;
+    background: rgba(255, 0, 119, 0.1);
+}
+#tests .failed .test-desc{
+    color: #f07;
+    text-align: center;
 }
 
+
+/* Misc Test Report Elements */
+
 #tests ul{
-  margin-left: 16px;
+  margin-left: 0px;
 }
 #tests .test-fn{
   font-family: "Droid Mono", "Courier New", Courier, monospace;
   color: #ccc;
   background: rgba(255, 255, 255, 0.1);
-  padding: 2px 4px;
-  margin: 2px 0px;
+  padding: 4px 4px;
+  margin: 4px 0px;
   line-height: 1em;
 }
 #tests .test-args{
   font-family: "Droid Mono", "Courier New", Courier, monospace;
   color: #ccc;
   background: rgba(255, 255, 255, 0.1);
-  padding: 2px 4px;
-  margin: 2px 0px;
+  padding: 4px 4px;
+  margin: 4px 0px;
   line-height: 1em;
 }
 
@@ -186,28 +214,6 @@ button:active {
     padding: 2px;
     background: #111;
     border-bottom: solid 1px #097;
-}
-
-#contacts {
-    margin: 64px 64px;
-    padding: 0px;
-    background: #2c2c2c;
-    border: solid 1px #666;
-    text-align: left;
-}
-
-#contacts input{
-    background: #222;
-    width: 50%;
-    font-size: 18px;
-    border: dotted 1px #444;
-}
-
-#contacts input:hover { border: dotted 1px #097; }
-
-#contacts input:focus {
-    background: #222;
-    border: solid 1px #0fc;
 }
 
 #foot{
