@@ -9,10 +9,14 @@
       (let [{:keys [list-name tasks]} this-list]
         (dom/div #js {:id (str "list-" (dash-core/name-as-id list-name))}
           (dom/h3 #js {:className "list-title"} (str list-name))
-          (dom/ul #js {:className "list-contents"}
-            ;(map #(let [{:keys [title completed]} %]
-            ;  (dom/li #js {:className (if completed "task-completed" "task-failed")}
-            ;    title) tasks)))
+          (apply dom/ul #js {:className "list-contents"}
+            (map
+               (fn [task] (let [{:keys [title completed]} task]
+                 (dom/li
+                   (if completed
+                     #js {:className "task-completed"}
+                     #js {:className "task-incomplete"})
+                   (str title)))) tasks)
         ))))))
 
 (defn lists-view [app owner]
