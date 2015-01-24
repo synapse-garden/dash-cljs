@@ -8,23 +8,23 @@
 (def app-state
   (atom
    {:lists
-      [{:list-name "Today"
-        :tasks [{:title "Get this working" :completed true}
-                {:title "Eat dinner" :completed false}
-                {:title "Hang out with Kevin" :completed false}]}
+      [{:list-name "Soon"
+        :tasks [{:title "Get this working" :completed true :date "2015 / 01 / 12" :timedue "6pm"}
+                {:title "Eat dinner" :completed false :date "Everyday" :timedue "8pm"}
+                {:title "Bros Grumpout" :completed true :date "Everyday" :timedue "All the time"}]}
 
-       {:list-name "Tomorrow"
-        :tasks [{:title "Wake up" :completed false}
-                {:title "Eat breakfast" :completed false}
-                {:title "Render some cool stuff" :completed false}
-                {:title "Play some games" :completed false}]}
+       {:list-name "Later"
+        :tasks [{:title "Wake up" :completed false :date "Everyday" :timedue "8am-ISH"}
+                {:title "Eat breakfast" :completed false :date "2015 / 01 / 12" :timedue "6pm"}
+                {:title "Render some cool stuff" :completed false :date "Any day" :timedue "Any time"}
+                {:title "Play some games" :completed false :date "Any day" :timedue "After work"}]}
 
-       {:list-name "The Future"
-        :tasks [{:title "Be successful as fuck" :completed false}
-                {:title "Complete Mindfork" :completed false}
-                {:title "Complete Phoenix Engine" :completed false}
-                {:title "Complete Dwarf Game" :completed false}
-                {:title "Die happy" :completed false}]}]
+       {:list-name "Future"
+        :tasks [{:title "Be successful as fuck" :completed false :date "Someday" :timedue "n/a"}
+                {:title "Complete Mindfork" :completed false :date "Someday" :timedue "n/a"}
+                {:title "Complete Phoenix Engine" :completed false :date "Someday" :timedue "n/a"}
+                {:title "Complete Dwarf Game" :completed false :date "Someday" :timedue "n/a"}
+                {:title "Die happy" :completed false :date "On your last day" :timedue "At the end of your time"}]}]
     :user
       "Mind Forker"}))
 
