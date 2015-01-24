@@ -11,19 +11,24 @@
           (dom/h3 #js {:className "list-title"} (str list-name))
           (apply dom/ul #js {:className "list-contents"}
             (map
-               (fn [task] (let [{:keys [title completed]} task]
+               (fn [task] (let [{:keys [title completed date timedue]} task]
                  (dom/li
                    (if completed
                      #js {:className "task-completed"}
                      #js {:className "task-incomplete"})
-                   (str title)))) tasks)
+                    (str title)
+                    (dom/div #js {:className "info-date"}
+                     date)
+                    (dom/div #js {:className "info-timedue"}
+                     timedue)
+                     ))) tasks)
         ))))))
 
 (defn lists-view [app owner]
   (reify
     om/IRender (render [_]
-      (dom/div #js {:className "lists-view"}
-        (dom/h2 #js {:className "lists-view_title"} (str (:user app) "'s Todo Lists"))
+      (dom/div #js {:id "lists-view"}
+        (dom/h2 #js {:id "lists-view_title"} (str (:user app) "'s Todo Lists"))
         (apply dom/div #js {:className "list-view"}
           (om/build-all list-view (:lists app))
       )))))
