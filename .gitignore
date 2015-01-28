@@ -24,8 +24,8 @@ target/
 
 # logs
 .lein-failures
+*.log
 
 # IDEA files for Cursive
 *.iml
-
 .idea
