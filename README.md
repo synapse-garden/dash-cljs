@@ -21,3 +21,5 @@ lein figwheel test
 ```
 
 Direct your browser to [`localhost:3449/index_test.html`](http://localhost:3449/index_test.html).  Happy hacking!  You'll still need to refresh your browser to get some changes.  (WIP)
+
+The Ring server will run on `localhost:3449/testserver`.  (WIP)
