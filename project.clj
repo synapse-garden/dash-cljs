@@ -18,9 +18,9 @@
 
   :source-paths ["src"]
 
-  :clean-targets ^{:protect false} ["resources/out"
-                                    "resources/test_out"
-                                    "resources/script"]
+  :clean-targets ^{:protect false} ["resources/public/out"
+                                    "resources/public/test_out"
+                                    "resources/public/script"]
 
   :cljsbuild {
     :builds [{:id "dash"
@@ -33,14 +33,13 @@
              {:id "test"
               :source-paths ["src" "test"]
               :compiler {
-                :output-to "resources/script/tests.js"
-                :output-dir "resources/test_out"
+                :output-to "resources/public/script/tests.js"
+                :output-dir "resources/public/test_out"
                 :optimizations :none
                 :cache-analysis true
                 :pretty-print true
                 :source-map true}}]}
   :figwheel {
-             :http-server-root ""
              :server-port 3449
              :ring-handler server.handler/test-app
              :open-file-command "LightTable"
