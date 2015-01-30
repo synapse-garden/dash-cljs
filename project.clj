@@ -15,12 +15,19 @@
                  [cljs-ajax "0.3.9"]]
 
   :plugins [[lein-cljsbuild "1.0.4"]
-            [lein-figwheel "0.2.2-SNAPSHOT"]]
+            [lein-figwheel "0.2.2-SNAPSHOT"]
+            [lein-ring "0.9.1"]]
 
   :clean-targets ^{:protect false} ["resources/public/out"
                                     "resources/public/test_out"
                                     "resources/public/script"
                                     "target"]
+
+  :ring {:handler server.handler/test-app
+         :port 3450
+         :auto-reload true
+         :stacktraces true
+         :reload-paths ["test/server"]}
 
   :cljsbuild {
     :builds [{:id "dash"
