@@ -2,33 +2,20 @@
   (:require [om.core :as om :include-macros true]
             [dash-test.core :as dash-core]
             [dash-test.views :as dash-views]
-            [dash-test.tests :as dash-tests]
             [dash-test.util :as dash-util]
             [figwheel.client :as fw]))
 
 (enable-console-print!)
 
 (def test-state (atom {}))
-                  ;dash-core/insert-ids dash-tests/tests)
-                  ;:reload false}))
 
 (fw/start {
-  :on-jsload (fn [] (do (swap! test-state
-                               #(assoc %
-                                  :tests (dash-core/insert-ids dash-tests/tests)
-                                  :reload-count (inc (:reload-count %))))
+  :on-jsload (fn [] (do (dash-core/refresh-tests! test-state)
                         (println "refresh")))
-                    ;(do (dash-util/set-reload! test-state)
-                        ;(dash-util/callout-reload @test-state)
-                        ;(dash-util/refresh-component! @test-state dash-views/tests-view)
-                        ;(dash-util/callout-reload @test-state)))
   :build-id "test"
 })
 
-(swap! test-state
-       #(assoc %
-          :tests (dash-core/insert-ids dash-tests/tests)
-          :reload-count (inc (:reload-count %))))
+(dash-core/refresh-tests! test-state)
 
 (om/root
   dash-views/tests-view
