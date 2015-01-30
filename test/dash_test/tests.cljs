@@ -1,25 +1,16 @@
 (ns dash-test.tests
   (:require [dash.core :as dash-core]))
 
-(def tests
-  [{:should "add two and two to get four"
-    :test-fn (fn [] (= (+ 2 2) 4))
-    :should-be true
-    :raw-fn '(fn [] (= (+ 2 2) 4))}
+(defn tests []
+  ;(constantly
+    [{:should "format a name as suitable for :className"
+      :test-fn dash-core/name-as-id
+      :args "Some complicated name"
+      :should-be "some_complicated_name"
+      :raw-fn '(dash.core/name-as-id)}
 
-   {:should "get a name from a map"
-    :test-fn (fn [names] (= (:bob names) "Bob Anderson"))
-    :should-be true
-    :raw-fn '(fn [names] (= (:bob names) "Bob Anderson"))
-    :args {:bob "Bob Anderson" :jim "Slim Jim"}}
-
-   {:should "demonstrate the testing of dash-core functions"
-    :test-fn dash-core/test-fail
-    :should-be false
-    :raw-fn (str dash-core/test-fail)}
-
-   {:should "purposely fail, for style testing"
-    :test-fn (fn [] true)
-    :should-be false
-    :raw-fn '(fn [] true)}
-  ])
+     {:should "purposely fail, for style testing"
+      :test-fn (fn [] true)
+      :should-be false
+      :raw-fn '(fn [] true)}
+    ]);)

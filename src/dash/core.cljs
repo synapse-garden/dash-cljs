@@ -4,11 +4,7 @@
 
 (defn name-as-id [list-name]
   "Cleanse a named thing into a usable css class name or id."
-  (string/lower-case (string/replace list-name "[\\s]" "_" )))
-
-(defn test-fail []
-  "A simple function to show testing usage"
-  false)
+  (string/lower-case (string/replace list-name #"[\s]" "_" )))
 
 (defn fetch-updates [state]
   "Return the map with any pending updates applied."

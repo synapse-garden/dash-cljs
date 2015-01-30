@@ -28,4 +28,4 @@
           (dom/h2 #js {:id "test-title"} (str "Testing View"))
           (apply dom/ul nil
             (om/build-all test-view (:tests app))))
-        )));(dash-util/refresh-component! app owner)))))
+        )))
