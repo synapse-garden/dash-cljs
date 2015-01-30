@@ -16,18 +16,17 @@
   :plugins [[lein-cljsbuild "1.0.4"]
             [lein-figwheel "0.2.2-SNAPSHOT"]]
 
-  :source-paths ["src"]
-
   :clean-targets ^{:protect false} ["resources/public/out"
                                     "resources/public/test_out"
-                                    "resources/public/script"]
+                                    "resources/public/script"
+                                    "target"]
 
   :cljsbuild {
     :builds [{:id "dash"
               :source-paths ["src"]
               :compiler {
-                :output-to "resources/script/dash.js"
-                :output-dir "resources/out"
+                :output-to "resources/public/script/dash.js"
+                :output-dir "resources/public/out"
                 :optimizations :none
                 :cache-analysis true}}
              {:id "test"
@@ -43,4 +42,4 @@
              :server-port 3449
              :ring-handler server.handler/test-app
              :open-file-command "LightTable"
-             :css-dirs ["resources/css"]})
+             :css-dirs ["resources/public/css"]})
