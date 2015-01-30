@@ -2,9 +2,9 @@ pom.xml
 *jar
 lib/
 classes/
-resources/out/
-resources/test_out/
-resources/script/
+resources/public/out/
+resources/public/test_out/
+resources/public/script/
 target/
 .lein-deps-sum
 .lein-repl-history

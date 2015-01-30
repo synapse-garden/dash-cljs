@@ -23,7 +23,9 @@
    For now, :test-fn is expected to be true if passing."
   (reify
     om/IRender (render [_]
-      (dom/div #js {:id "tests"}
-        (dom/h2 #js {:id "test-title"} (str "Testing View"))
-        (apply dom/ul nil
-          (om/build-all test-view (:tests app)))))))
+      ;(do
+        (dom/div #js {:id "tests"}
+          (dom/h2 #js {:id "test-title"} (str "Testing View"))
+          (apply dom/ul nil
+            (om/build-all test-view (:tests app))))
+        )));(dash-util/refresh-component! app owner)))))
