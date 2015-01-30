@@ -5,7 +5,7 @@
             :url "http://www.gnu.org/copyleft/gpl.html"}
 
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-2727"]
+                 [org.clojure/clojurescript "0.0-2740"]
                  [compojure "1.3.1"]
                  [ring/ring-core "1.3.2"]
                  [ring/ring-jetty-adapter "1.3.2"]
