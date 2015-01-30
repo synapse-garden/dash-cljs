@@ -8,7 +8,6 @@
 
 (defn fetch-updates [state]
   "Return the map with any pending updates applied."
-  (constantly
    {:lists
       [{:list-name "Soon"
         :tasks [{:title "Get this working" :completed true :date "2015 / 01 / 12" :timedue "6pm"}
@@ -29,4 +28,4 @@
                 {:title "Die happy" :completed false :date "On your last day" :timedue "At the end of your time"}]}]
     :user
       "Mind Forker"
-    }))
+    })
