@@ -1,13 +1,13 @@
 (ns dash.views
   (:require [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true]
-            [dash.core :as dash-core]))
+            [dash.util :as dash-util]))
 
 (defn list-view [this-list owner]
   (reify
     om/IRender (render [_]
       (let [{:keys [list-name tasks]} this-list]
-        (dom/div #js {:id (str "list-" (dash-core/name-as-id list-name))}
+        (dom/div #js {:id (str "list-" (dash-util/name-as-id list-name))}
           (dom/h3 #js {:className "list-title"} (str list-name))
           (apply dom/ul #js {:className "list-contents"}
             (map

@@ -1,34 +1,23 @@
 (ns dash.root
   (:require [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true]
-            [dash.views :as dash-views]))
+            [dash.views :as dash-views]
+            [dash.core :as dash-core]
+            [figwheel.client :as fw]))
 
 (enable-console-print!)
 
-(def app-state
-  (atom
-   {:lists
-      [{:list-name "Soon"
-        :tasks [{:title "Get this working" :completed true :date "2015 / 01 / 12" :timedue "6pm"}
-                {:title "Eat dinner" :completed false :date "Everyday" :timedue "8pm"}
-                {:title "Bros Grumpout" :completed true :date "Everyday" :timedue "All the time"}]}
+(def app-state (atom {:reload-count 0}))
 
-       {:list-name "Later"
-        :tasks [{:title "Wake up" :completed false :date "Everyday" :timedue "8am-ISH"}
-                {:title "Eat breakfast" :completed false :date "2015 / 01 / 12" :timedue "6pm"}
-                {:title "Render some cool stuff" :completed false :date "Any day" :timedue "Any time"}
-                {:title "Play some games" :completed false :date "Any day" :timedue "After work"}]}
-
-       {:list-name "Future"
-        :tasks [{:title "Be successful as fuck" :completed false :date "Someday" :timedue "n/a"}
-                {:title "Complete Mindfork" :completed false :date "Someday" :timedue "n/a"}
-                {:title "Complete Phoenix Engine" :completed false :date "Someday" :timedue "n/a"}
-                {:title "Complete Dwarf Game" :completed false :date "Someday" :timedue "n/a"}
-                {:title "Die happy" :completed false :date "On your last day" :timedue "At the end of your time"}]}]
-    :user
-      "Mind Forker"}))
+(fw/start {
+  :on-jsload (fn [] (do (swap! app-state #(assoc % :reload-count (inc (:reload-count %))))
+                        (println "refresh: " (:reload-count @app-state))))
+  :build-id "dash"
+})
 
 (om/root
  dash-views/lists-view
  app-state
  {:target (. js/document (getElementById "dash"))})
+
+(swap! app-state (dash-core/fetch-updates @app-state))

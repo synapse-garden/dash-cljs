@@ -11,7 +11,8 @@
                  [ring/ring-jetty-adapter "1.3.2"]
                  [cheshire "5.4.0"]
                  [figwheel "0.2.2-SNAPSHOT"]
-                 [org.omcljs/om "0.8.7"]]
+                 [org.omcljs/om "0.8.7"]
+                 [cljs-ajax "0.3.9"]]
 
   :plugins [[lein-cljsbuild "1.0.4"]
             [lein-figwheel "0.2.2-SNAPSHOT"]]
@@ -28,7 +29,11 @@
                 :output-to "resources/public/script/dash.js"
                 :output-dir "resources/public/out"
                 :optimizations :none
-                :cache-analysis true}}
+                :cache-analysis true
+                :pretty-print true
+                :source-map true
+                         }}
+
              {:id "test"
               :source-paths ["src" "test"]
               :compiler {
@@ -38,8 +43,8 @@
                 :cache-analysis true
                 :pretty-print true
                 :source-map true}}]}
+
   :figwheel {
              :server-port 3449
              :ring-handler server.handler/test-app
-             :open-file-command "LightTable"
              :css-dirs ["resources/public/css"]})

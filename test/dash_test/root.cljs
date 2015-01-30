@@ -18,10 +18,6 @@
                                   :tests (dash-core/insert-ids dash-tests/tests)
                                   :reload-count (inc (:reload-count %))))
                         (println "refresh")))
-                    ;(do (dash-util/set-reload! test-state)
-                        ;(dash-util/callout-reload @test-state)
-                        ;(dash-util/refresh-component! @test-state dash-views/tests-view)
-                        ;(dash-util/callout-reload @test-state)))
   :build-id "test"
 })
 
