@@ -38,8 +38,7 @@
                 :optimizations :none
                 :cache-analysis true
                 :pretty-print true
-                :source-map true
-                         }}
+                :source-map true}}
 
              {:id "test"
               :source-paths ["src" "test"]
@@ -53,5 +52,4 @@
 
   :figwheel {
              :server-port 3449
-             :ring-handler server.handler/test-app
              :css-dirs ["resources/public/css"]})

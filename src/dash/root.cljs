@@ -12,8 +12,7 @@
 (fw/start {
   :on-jsload (fn [] (do (swap! app-state #(assoc % :reload-count (inc (:reload-count %))))
                         (println "refresh: " (:reload-count @app-state))))
-  :build-id "dash"
-})
+  :build-id "dash"})
 
 (om/root
  dash-views/lists-view
