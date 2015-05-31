@@ -4,19 +4,20 @@
   :license {:name "GNU General Public License Version 3"
             :url "http://www.gnu.org/copyleft/gpl.html"}
 
-  :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-2740"]
-                 [compojure "1.3.1"]
+  :dependencies [[org.clojure/clojure "1.7.0-beta3"]
+                 [org.clojure/core.async "0.1.346.0-17112a-alpha"]
+                 [org.clojure/clojurescript "0.0-3269"]
+                 [compojure "1.3.4"]
                  [ring/ring-core "1.3.2"]
                  [ring/ring-jetty-adapter "1.3.2"]
-                 [cheshire "5.4.0"]
-                 [figwheel "0.2.2-SNAPSHOT"]
+                 [cheshire "5.5.0"]
+                 [figwheel "0.3.3"]
                  [org.omcljs/om "0.8.7"]
-                 [cljs-ajax "0.3.9"]]
+                 [cljs-ajax "0.3.11"]]
 
-  :plugins [[lein-cljsbuild "1.0.4"]
-            [lein-figwheel "0.2.2-SNAPSHOT"]
-            [lein-ring "0.9.1"]]
+  :plugins [[lein-cljsbuild "1.0.6"]
+            [lein-figwheel "0.3.3"]
+            [lein-ring "0.9.4"]]
 
   :clean-targets ^{:protect false} ["resources/public/out"
                                     "resources/public/test_out"
